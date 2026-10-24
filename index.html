@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draudible</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="menu">
+        <h1>Draudible</h1>
+        <p>Draw what you hear.</p>
+
+        <button id="playButton">Play</button>
+    </main>
+
+    <section id="setupScreen" hidden>
+        <h2>Game Setup</h2>
+        <p>Get your teams ready!</p>
+
+        <label for="teamCount">Number of teams:</label>
+        <select id="teamCount">
+            <option value="2">2 Teams</option>
+            <option value="3">3 Teams</option>
+            <option value="4">4 Teams</option>
+        </select>
+        <br><br>
+
+        <label for="roundCount">Number of rounds:</label>
+        <select id="roundCount">
+            <option value="1">1 Round</option>
+            <option value="2">2 Rounds</option>
+            <option value="3" selected>3 Rounds</option>
+            <option value="4">4 Rounds</option>
+            <option value="5">5 Rounds</option>
+        </select>
+
+        <br>
+        <button id="startButton">Start Game</button>
+        <button id="backButton">Back</button>
+    </section>
+
+    <section id="soundScreen" hidden>
+        <h2>Sound Clue</h2>
+        <p id="turnInfo"></p>
+        <p>Clue giver: make sounds, but don't speak!</p>
+
+        <div id="promptCard">
+            <p>Your prompt is:</p>
+            <h3 id="promptText">Dog</h3>
+        </div>
+
+        <button id="beginDrawingButton">I'm Ready!</button>
+    </section>
+
+    
+    <section id="drawingScreen" hidden>
+        <h2>Draw what you heard!</h2>
+        <p id="drawingTurnInfo"></p>
+        <p>Work with your teammate's sound clues.</p>
+
+        <div class="drawingLayout">
+            <div class="drawingArea">
+                <canvas id="drawingCanvas"
+                        width="700"
+                        height="400"></canvas>
+
+                <div>
+                    <button id="clearButton">Clear</button>
+                    <button id="finishDrawingButton">
+                        Finish Drawing
+                    </button>
+                </div>
+            </div>
+
+            <aside class="drawingScoreboard">
+                <h3>Scores</h3>
+                <div id="drawingScoreboardContent"></div>
+            </aside>
+        </div>
+    </section>
+
+    
+    <section id="handoff-screen" class="screen hidden">
+        <h1 id="handoff-title">Team 1 — Clue Giver</h1>
+
+        <p id="handoff-instructions">
+            The clue giver should take the device.
+        </p>
+
+        <p id="handoff-reminder">
+            Keep your prompt secret!
+        </p>
+
+        <button id="handoff-button">
+            Ready
+        </button>
+    </section>
+
+
+    <section id="roundScoreboardScreen" class="screen hidden">
+        <h1>Round Scoreboard</h1>
+
+        <p id="roundScoreboardTitle">
+            Scores after Round 1
+        </p>
+
+        <div id="roundScoreboardContent"></div>
+
+        <button id="roundScoreboardContinueButton">
+            Continue
+        </button>
+    </section>
+
+
+    <section id="resultScreen" hidden>
+        <h2>Drawing Complete!</h2>
+        <p>Your prompt was:</p>
+        <h3 id="resultPrompt"></h3>
+
+        <img id="savedDrawing" alt="Your team's drawing">
+
+        <br>
+        <button id="continueButton">Continue</button>
+    </section>
+
+    
+
+    <section id="gameSummaryScreen" hidden>
+        <h2>All Turns Complete!</h2>
+        <p id="summaryText"></p>
+
+        <h3>Final Scores</h3>
+        <div id="finalScores"></div>
+
+        <button id="mainMenuButton">Back to Main Menu</button>
+    </section>
+    
+
+    <section id="matchingScreen" hidden>
+        <h2>Match the Drawings!</h2>
+        <p id="matchingTurnInfo"></p>
+        <p>Look at each drawing and decide which prompt it represents.</p>
+
+        <div class="drawingLayout">
+            <div class="matchingAreaContainer">
+                <div id="matchingArea"></div>
+                <button id="submitMatchesButton">Submit Matches</button>
+            </div>
+
+            <aside class="drawingScoreboard">
+                <h3>Scores</h3>
+                <div id="matchingScoreboardContent"></div>
+            </aside>
+        </div>
+    </section>
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

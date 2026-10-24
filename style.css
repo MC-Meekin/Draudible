@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #20243a;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 64px;
+    margin-top: 120px;
+}
+
+p {
+    font-size: 20px;
+    color: #c5c9dc;
+}
+
+.menu button {
+    margin-top: 30px;
+    padding: 16px 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background-color: #827aff;
+}
+
+#drawingCanvas {
+    background-color: white;
+    border: 3px solid #6c63ff;
+    border-radius: 12px;
+    cursor: crosshair;
+    max-width: 90%;
+}
+
+#savedDrawing {
+    display: block;
+    max-width: 90%;
+    max-height: 400px;
+    margin: 20px auto;
+    background-color: white;
+    border: 3px solid #6c63ff;
+    border-radius: 12px;
+}
+
+
+.drawingLayout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.drawingArea {
+    flex: 0 1 700px;
+    min-width: 0;
+}
+
+.drawingArea canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #888;
+}
+
+.drawingScoreboard {
+    flex: 0 0 180px;
+    padding: 16px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    text-align: left;
+}
+
+
+/* Handoff screen */
+#handoff-screen {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 32px;
+    text-align: center;
+    border-radius: 12px;
+    background: #f0f0f0;
+    color: #222;
+}
+
+#handoff-screen h1 {
+    margin-bottom: 24px;
+}
+
+#handoff-screen p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+#handoff-button {
+    margin-top: 24px;
+    padding: 12px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hide inactive screens */
+.hidden {
+    display: none !important;
+}
+
+
+#matchingArea img,
+#roundScoreboardContent img,
+#savedDrawing {
+    background-color: white;
+}
