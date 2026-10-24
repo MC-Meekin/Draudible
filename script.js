@@ -462,6 +462,7 @@ drawingCanvas.addEventListener("mousemove", function (event) {
     if (!isDrawing) return;
 
     const pos = getCanvasCoordinates(event);
+    console.log("Canvas:", pos.x, pos.y);
 
     ctx.lineTo(pos.x, pos.y);
     ctx.stroke();
