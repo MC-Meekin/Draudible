@@ -390,6 +390,15 @@ function updateScoreboard() {
     });
 }
 
+function getCanvasCoordinates(event) {
+    const rect = drawingCanvas.getBoundingClientRect();
+
+    return {
+        x: (event.clientX - rect.left) * (drawingCanvas.width / rect.width),
+        y: (event.clientY - rect.top) * (drawingCanvas.height / rect.height)
+    };
+}
+
 
 
 startButton.addEventListener("click", function () {
@@ -443,14 +452,18 @@ let isDrawing = false;
 drawingCanvas.addEventListener("mousedown", function (event) {
     isDrawing = true;
 
+    const pos = getCanvasCoordinates(event);
+
     ctx.beginPath();
-    ctx.moveTo(event.offsetX, event.offsetY);
+    ctx.moveTo(pos.x, pos.y);
 });
 
 drawingCanvas.addEventListener("mousemove", function (event) {
     if (!isDrawing) return;
 
-    ctx.lineTo(event.offsetX, event.offsetY);
+    const pos = getCanvasCoordinates(event);
+
+    ctx.lineTo(pos.x, pos.y);
     ctx.stroke();
 });
 
