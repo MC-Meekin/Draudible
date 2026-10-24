@@ -392,10 +392,21 @@ function updateScoreboard() {
 
 function getCanvasCoordinates(event) {
     const rect = drawingCanvas.getBoundingClientRect();
+    const style = getComputedStyle(drawingCanvas);
+
+    const borderLeft = parseFloat(style.borderLeftWidth);
+    const borderTop = parseFloat(style.borderTopWidth);
+
+    const contentWidth = rect.width - borderLeft
+        - parseFloat(style.borderRightWidth);
+    const contentHeight = rect.height - borderTop
+        - parseFloat(style.borderBottomWidth);
 
     return {
-        x: (event.clientX - rect.left) * (drawingCanvas.width / rect.width),
-        y: (event.clientY - rect.top) * (drawingCanvas.height / rect.height)
+        x: (event.clientX - rect.left - borderLeft)
+            * (drawingCanvas.width / contentWidth),
+        y: (event.clientY - rect.top - borderTop)
+            * (drawingCanvas.height / contentHeight)
     };
 }
 
